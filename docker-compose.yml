@@ -1,0 +1,19 @@
+version: '2'
+services:
+    app:
+        restart: always
+        build:
+            context: ./web
+        image: startlabs/tourism
+        environment:
+
+            - APP_HOST=cebuspot.com
+            - VIRTUAL_HOST=www.trabahobro.com, cebuspot.com
+        networks:
+            - rproxy_default
+
+
+
+networks:
+    rproxy_default:
+        external: true
